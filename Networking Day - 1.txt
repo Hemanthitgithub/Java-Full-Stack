@@ -1,0 +1,147 @@
+Assignment 1: 
+
+* Draw your Home Network Topology and explain how you are accessing the RPS Lab environment.
+  Home Network Topology:
+	
+Components:
+
+•	ISP Modem: This is the device provided by your Internet Service Provider (ISP)
+                   that connects your home network to the Internet.
+•	Router: The router acts as the central hub of your home network, 
+                managing connections between devices and providing access to the Internet. 
+                It may include built-in Wi-Fi capabilities and multiple Ethernet ports.
+•	Switch: A switch can be used to expand the number of Ethernet ports 
+                available for wired connections within your home network.
+•	Access Point (AP): The access point provides wireless connectivity for devices that support Wi-Fi,
+                          extending the coverage of your home network.
+•	Devices: Various devices connect to your home network, including computers, smartphones, 
+                 tablets, smart TVs, printers, and smart home devices.
+	
+Topology:
+
+•	The home network typically follows a star topology, with all devices connected to the central router.
+•	Devices may connect to the router via wired Ethernet connections (using Ethernet cables)
+        or wirelessly through the access point (using Wi-Fi).
+
+Diagram:
+                           [ISP Modem]
+                                      |
+                                [Router]
+                                    /    \
+                        [Switch]    [Access Point]
+                                |              |
+                 [Devices Wired]   [Devices Wireless]
+
+1.	Bus Topology:
+
+•	In a bus topology, all devices are connected to a single central cable, called the bus or backbone.
+•	Devices communicate with each other by sending data along the bus.
+•	Advantages: Simple and inexpensive to set up, suitable for small networks with few devices.
+•	Disadvantages: Susceptible to cable failures, network slowdowns if multiple devices attempt to transmit simultaneously, difficult to troubleshoot.
+
+2.	Ring Topology:
+
+•	In a ring topology, each device is connected to exactly two other devices, forming a closed loop or ring.
+•	Data travels around the ring in one direction, passing through each device until it reaches its destination.
+•	Advantages: Simple and easy to install, efficient data transmission with minimal collisions.
+•	Disadvantages: Vulnerable to cable or device failures, a single point of failure can disrupt the entire network, 
+        difficult to add or remove devices without disrupting the network.
+
+3.	Mesh Topology:
+
+•	In a mesh topology, each device is connected to every other device in the network, forming a fully interconnected mesh.
+•	Data can travel along multiple paths, increasing reliability and fault tolerance.
+•	Advantages: High redundancy and fault tolerance, efficient data transmission, scalable and flexible.
+•	Disadvantages: Expensive and complex to set up, requires a large number of cables and ports, difficult to manage and troubleshoot.
+
+4.	Star Topology:
+
+•	In a star topology, all devices are connected to a central hub or switch, forming a star-like configuration.
+•	Data travels through the central hub, which manages communication between devices.
+•	Advantages: Simple and easy to set up, centralized management, easy to add or remove devices without disrupting the network.
+•	Disadvantages: Dependency on the central hub, if the hub fails, the entire network may become inaccessible, limited scalability.
+
+5.	Hybrid Topology:
+
+•	A hybrid topology combines two or more different network topologies, such as a combination of star and mesh or star and ring.
+•	Hybrid topologies are often used to leverage the strengths of multiple topologies and address specific network requirements.
+•	Advantages: Provides flexibility and customization, allows for optimization of network performance and reliability.
+•	Disadvantages: Increased complexity, may require additional hardware and management overhead.
+
+2.	Accessing the RPS Lab Environment:
+
+•	Remote Access: If the RPS lab environment is hosted remotely, you can access it from your home network 
+                       using remote access technologies such as Virtual Private     Network (VPN) or Remote Desktop Protocol (RDP).
+•	VPN: You can set up a VPN connection from your home network to the RPS lab environment, 
+              which allows you to securely access lab resources as if you were physically connected to the lab network.
+•	RDP: Alternatively, if the lab environment provides a Windows-based interface, you can use Remote Desktop Protocol (RDP) 
+              to connect to a remote Windows server or workstation within the lab environment and interact with lab resources remotely.
+•	Configuration: To set up remote access, you may need to configure your home network router to allow 
+                       VPN passthrough or port forwarding, depending on the specific requirements of the remote lab environment.
+•	Security: Ensure that you follow best practices for securing your remote access connections, 
+                 such as using strong encryption, implementing multi-factor authentication, and keeping your VPN and RDP clients up to date with security patches.
+
+=======================================================================================================================================================================
+
+Assignment 2:
+
+ * Identify a real-world application for both parallel computing and networked systems. 
+   Explain how these technologies are used and why they are important in that context
+
+1.	Parallel Computing: Genomic Sequencing
+
+ Application: Genomic sequencing involves analysing and decoding the DNA sequence of organisms to understand genetic variations, 
+        identify disease-causing mutations, and develop personalized medicine treatments.
+	How Parallel Computing is Used: Genomic sequencing generates massive amounts of data, 
+        often consisting of billions of base pairs for each individual genome. Parallel computing techniques, 
+        such as parallel algorithms and high-performance computing     (HPC) clusters, are used to accelerate the processing and analysis of genomic data.
+ Importance: Parallel computing enables researchers and healthcare professionals to analyse 
+        large genomic datasets more efficiently and accurately. By leveraging        
+        parallel processing capabilities, genomic sequencing workflows can be significantly accelerated, 
+        leading to faster diagnoses, more targeted treatments, and advancements in genomics research.
+ Utilization:
+    	Particle physics experiments generate massive amounts of data from detectors, 
+	such as the Large Hadron Collider (LHC) at CERN, which collides particles at high energies and captures the resulting interactions.
+	Parallel computing techniques are used to analyze this vast volume of data efficiently. Tasks such as reconstructing particle tracks, identifying rare events, and 	simulating particle interactions require intense computational power.
+	Parallel computing architectures, including high-performance computing (HPC) clusters and grid computing, 
+	are employed to distribute these computational tasks across multiple processing units or nodes, enabling parallel execution and faster data analysis.
+ Speed: 
+	Parallel computing accelerates data analysis, allowing researchers to process and analyze massive datasets in a reasonable time frame. This speed is crucial for 	timely scientific discoveries and insights.
+	Scalability: As the volume of experimental data continues to grow, parallel computing provides scalable solutions that can handle increasingly large datasets 	without sacrificing performance.
+ Accuracy:
+	 Parallel computing enables researchers to perform complex simulations and data analyses with high precision and accuracy, 
+	leading to more reliable scientific results.
+ Innovation: 
+	The ability to leverage parallel computing facilitates innovative research methodologies, 
+	such as machine learning algorithms for data classification and pattern recognition, 
+	enabling new discoveries in particle physics and other scientific domains.
+
+2.	Networked Systems: Smart Grids
+
+Utilization:
+	Networked systems are essential for distributing and managing data across distributed computing resources located in different geographical locations.
+	Large-scale scientific collaborations, such as those involved in particle physics experiments, rely on networked systems to transfer data between experiment sites, 	data centers, and research institutions worldwide.
+	High-speed, dedicated networks, such as the Worldwide LHC Computing Grid (WLCG), connect computing facilities and storage systems, enabling seamless data transfer 	and collaboration among researchers.
+	Network protocols and technologies, such as TCP/IP, Ethernet, and fiber-optic networks, facilitate efficient data communication and synchronization between 	distributed computing resources.
+
+
+Application: Smart grids are modernized electrical grids that use networked systems and 
+        advanced technologies to optimize the generation, distribution, and consumption of electricity.
+	How Networked Systems are Used: Smart grids rely on networked systems, including sensors, meters, 
+        communication networks, and control systems, to collect real-time data on electricity supply and demand, monitor grid performance, 
+        and control grid operations    remotely. These networked systems enable utilities to improve grid reliability, reduce energy waste, 
+        integrate renewable energy sources, and support demand response programs.
+Importance: Networked systems play a crucial role in modernizing traditional electrical grids and transforming them into smart grids. 
+        By leveraging real-time data and communication technologies, smart grids can enhance grid resilience, 
+        optimize energy efficiency, reduce greenhouse gas emissions, and support the transition to a more sustainable and decentralized energy infrastructure.
+
+Data Sharing:
+	Networked systems facilitate the sharing and dissemination of experimental data, analysis results, and 
+	scientific publications within the research community, 	fostering transparency and reproducibility in scientific research.
+Resource Sharing: 
+	Networked systems allow researchers to access and utilize computing resources and data storage facilities located remotely, 
+	maximizing the utilization of available resources and infrastructure.
+Data Security: 
+	Secure network protocols and encryption techniques help protect sensitive experimental data and intellectual 
+	property from unauthorized access and cyber threats, ensuring the integrity and confidentiality of scientific research.
+
