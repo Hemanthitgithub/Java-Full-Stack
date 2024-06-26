@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #2cc2ac;
+    border: 1px solid #ccc;
+}
+.quote{
+    color: rgb(235, 127, 13);
+    text-align: center;
+    font-size: 200%;
+}

@@ -1,0 +1,74 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.design{
+    
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: rgb(39, 148, 121);
+    font-family:cursive
+    
+}
+
+nav {
+    background-color: #a76666;
+}
+
+.nav-menu {
+    color: rgb(185, 57, 57);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu li {
+    float: left;
+}
+
+.nav-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.nav-menu li a:hover {
+    background-color: #803434;
+}
+
+.nav-menu li a.active {
+    background-color: #81463b;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+}
+
+section h1 {
+    font-size: 2em;
+}
+#home{
+    color: rgb(25, 22, 243);
+}
+
+#about{
+    color: rgb(9, 143, 136);
+}
+
+#services{
+    color: rgb(216, 42, 11);
+}
+
+#contact{
+    color: rgb(206, 17, 133);
+}

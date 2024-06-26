@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Management Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for additional styling -->
+    <style>
+        body {
+            background-color: #1a1a1a; /* Dark background */
+            color: #ffffff; /* White text */
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            margin-bottom: 20px;
+            background-color: #333333; /* Dark card background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+        }
+        .btn-primary {
+            background-color: #0056b3; /* Dark blue button */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #004080; /* Darker blue on hover */
+        }
+        .modal-content {
+            background-color: #333333; /* Dark modal background */
+            color: #ffffff; /* White text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1>Policy Management Dashboard</h1>
+            <nav class="nav">
+                <a class="nav-link text-white" href="#about">About</a>
+                <a class="nav-link text-white" href="#services">Services</a>
+                <a class="nav-link text-white" href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Sidebar -->
+                <div class="list-group">
+                    <a href="#all-policies" data-toggle="tab" class="list-group-item list-group-item-action active">All Policies</a>
+                    <a href="#add-policy" data-toggle="tab" class="list-group-item list-group-item-action">Add New Policy</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <!-- All Policies Tab -->
+                    <div id="all-policies" class="tab-pane fade show active">
+                        <h2 class="mb-4">All Policies</h2>
+                        <div class="form-group">
+                            <label for="sortBy">Sort by:</label>
+                            <select class="form-control" id="sortBy">
+                                <option value="name">Name</option>
+                                <option value="type">Type</option>
+                            </select>
+                        </div>
+                        <div class="row" id="policyList">
+                            <!-- Policy cards will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <!-- Add New Policy Tab -->
+                    <div id="add-policy" class="tab-pane fade">
+                        <h2 class="mb-4">Add New Policy</h2>
+                        <form id="addPolicyForm">
+                            <div class="form-group">
+                                <label for="policyName">Policy Name:</label>
+                                <input type="text" class="form-control" id="policyName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="policyType">Policy Type:</label>
+                                <input type="text" class="form-control" id="policyType" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="policyDetails">Policy Details:</label>
+                                <textarea class="form-control" id="policyDetails" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Policy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Details Modal -->
+    <div class="modal fade" id="policyDetailsModal" tabindex="-1" role="dialog" aria-labelledby="policyDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="policyDetailsModalLabel">Policy Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="policyDetailsContent">
+                        <!-- Policy details will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Sample data for policies (replace with actual data or fetch from backend)
+        var policies = [
+            { name: 'Health Insurance', type: 'Health', details: 'Comprehensive health insurance policy.' },
+            { name: 'Auto Insurance', type: 'Auto', details: 'Full coverage auto insurance.' },
+            { name: 'Home Insurance', type: 'Home', details: 'Complete home insurance package.' }
+        ];
+
+        // Function to render policies based on selected sorting
+        function renderPolicies(sortBy) {
+            var policyList = $('#policyList');
+            policyList.empty(); // Clear existing policies
+
+            policies.sort(function (a, b) {
+                if (a[sortBy] < b[sortBy]) return -1;
+                if (a[sortBy] > b[sortBy]) return 1;
+                return 0;
+            });
+
+            policies.forEach(function (policy) {
+                var card = $('<div class="col-lg-4 col-md-6">' +
+                                '<div class="card">' +
+                                    '<div class="card-body">' +
+                                        '<h5 class="card-title">' + policy.name + '</h5>' +
+                                        '<p class="card-text">' + policy.details + '</p>' +
+                                        '<button class="btn btn-primary btn-sm mr-2 policy-detail-btn" data-name="' + policy.name + '">Details</button>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>');
+                policyList.append(card);
+            });
+
+            // Add event listener for policy detail buttons
+            $('.policy-detail-btn').on('click', function () {
+                var policyName = $(this).data('name');
+                var policy = policies.find(function (p) { return p.name === policyName; });
+                $('#policyDetailsContent').html('<p>' + policy.details + '</p>');
+                $('#policyDetailsModal').modal('show');
+            });
+        }
+
+        // Initial rendering of policies sorted by name
+        renderPolicies('name');
+
+        // Event listener for sort by select box change
+        $('#sortBy').on('change', function () {
+            var sortBy = $(this).val();
+            renderPolicies(sortBy);
+        });
+
+        // Add Policy form submission
+        $('#addPolicyForm').on('submit', function (event) {
+            event.preventDefault();
+            var policyName = $('#policyName').val();
+            var policyType = $('#policyType').val();
+            var policyDetails = $('#policyDetails').val();
+            var newPolicy = { name: policyName, type: policyType, details: policyDetails };
+            policies.push(newPolicy);
+            renderPolicies('name'); // Re-render policies after adding new one
+            // Clear form fields after submission
+            $('#policyName').val('');
+            $('#policyType').val('');
+            $('#policyDetails').val('');
+        });
+    </script>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
